@@ -32,7 +32,7 @@ R CMD INSTALL --configure-args="--with-libzbioc" zlibioc_<...>.tar.gz
 ```
 or
 ```{r eval=FALSE} 
-> install.packages("zlibbioc_<...>.tar.gz", 
+install.packages("zlibbioc_<...>.tar.gz", 
                    configure.args="--with-libzbioc")
 ```
 
@@ -59,7 +59,7 @@ the appropriate header files are available to the gcc compiler, and that the
 DLL is discovered by the linker.
 
 * Create a file **src/Makevars.win** including the following lines:
-  ```{bash eval=FALSE}
+  ```
   ZLIB_CFLAGS+=$(shell echo 'zlibbioc::pkgconfig("PKG_CFLAGS")'|\
     "${R_HOME}/bin/R" --vanilla --slave)
   PKG_LIBS+=$(shell echo 'zlibbioc::pkgconfig("PKG_LIBS_shared")' |\
@@ -70,7 +70,7 @@ DLL is discovered by the linker.
   Packages with **C++** code also require the rule (replace **.cc** with
   **.cpp** as necessary)
 
-  ```{bash eval=FALSE}
+  ```
   %.o: %.cc
       $(CXX) $(ZLIB_CFLAGS) $(ALL_CPPFLAGS) $(ALL_CXXFLAGS) -c $< -o $@
   ```
@@ -81,7 +81,7 @@ On Linux and other platforms, the most portable solution is to link to
 static libraries
 
 * Create a file **src/Makevars** including the following lines:
-  ```{bash eval=FALSE}
+  ```
   PKG_CFLAGS+=$(shell echo 'zlibbioc::pkgconfig("PKG_CFLAGS")'|\
       "${R_HOME}/bin/R" --vanilla --slave)
   PKG_LIBS+=$(shell echo 'zlibbioc::pkgconfig("PKG_LIBS_static")'|\
@@ -91,11 +91,11 @@ static libraries
 It is also possible to link to the shared library (see qualifications
 about portability in 'Writing **R** Extensions') with
 
-```{bash eval=FALSE}
+```
 PKG_CFLAGS+=$(shell echo 'zlibbioc::pkgconfig("PKG_CFLAGS")'|\
     "${R_HOME}/bin/R" --vanilla --slave)
 PKG_LIBS+=$(shell echo 'zlibbioc::pkgconfig("PKG_LIBS_shared")' |\
     "${R_HOME}/bin/R" --vanilla --slave)
 ```
 
-The *Rsamtools* package is a more complex example illustrating this approach.
+The `r Biocpkg('Rsamtools')` package is a more complex example illustrating this approach.
