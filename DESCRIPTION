@@ -15,3 +15,4 @@ URL: https://bioconductor.org/packages/zlibbioc
 BugReports: https://github.com/Bioconductor/zlibbioc/issues
 License: Artistic-2.0 + file LICENSE
 LazyLoad: yes
+VignetteBuilder: knitr
