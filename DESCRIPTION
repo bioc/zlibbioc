@@ -1,7 +1,7 @@
 Package: zlibbioc
 Type: Package
 Title: An R packaged zlib-1.2.5
-Version: 1.51.0
+Version: 1.51.1
 Author: Martin Morgan
 Maintainer: Bioconductor Package Maintainer <maintainer@bioconductor.org>
 Description: This package uses the source code of zlib-1.2.5 to create
@@ -16,3 +16,4 @@ BugReports: https://github.com/Bioconductor/zlibbioc/issues
 License: Artistic-2.0 + file LICENSE
 LazyLoad: yes
 VignetteBuilder: knitr
+PackageStatus: Deprecated
